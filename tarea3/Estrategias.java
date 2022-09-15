@@ -1,4 +1,3 @@
-
 public class Estrategias {
 	
 	/**
@@ -12,14 +11,25 @@ public class Estrategias {
 	 * @param y2: la posicion en Y de la segunda fruta
 	 * @return 1 si la primera fruta es la más cercana, 2 en caso contrario.
 	 */
-
-
-	
-
-
 	public int frutaMasCercana(int x, int y, int x1, int y1, int x2, int y2) {
+		//Distancia entre el personaje y la primer fruta
+		int distanciaConFruta1EnX = Math.abs(x - x1); //Math.abs() para obtener el valor absoluto de la diferencia entre ambas posiciones
+		int distanciaConFruta1EnY = Math.abs(y - y1); // Idem
+		int distanciaConFruta1Total = distanciaConFruta1EnX + distanciaConFruta1EnY;
 		
-		return 0;
+		//Distancia entre el personaje y la segunda fruta
+		int distanciaConFruta2EnX = Math.abs(x - x2); 
+		int distanciaConFruta2EnY = Math.abs(y - y2); 
+		int distanciaConFruta2Total = distanciaConFruta2EnX + distanciaConFruta2EnY;
+		
+		if (distanciaConFruta1Total < distanciaConFruta2Total) {
+			return 1;
+		}
+		if (distanciaConFruta1Total > distanciaConFruta2Total) {
+			return 2;
+		}
+		
+		return 0; // No borré el return 0 en caso de que ambas frutas esten a la misma distancia con respecto al personaje
 	}
 	
 	/**
@@ -46,6 +56,29 @@ public class Estrategias {
 	 * @param yObj: la posicion en Y del objetivo
 	 */
 	public void desplazarseHacia(int x, int y, int xObj, int yObj) {
+
+		// Desplazamiento vertical
+		int distanciaY = Math.abs(y - yObj);
+		for (int iY = 0; iY < distanciaY; iY++) {
+			if (yObj > y) { // Si yObj es mayor al punto de origen, los pasos serán hacia arriba, de lo contrario serán hacia abajo
+				System.out.println("ARRIBA");
+			} else if (yObj < y){
+				System.out.println("ABAJO");
+			}
+		}
+		
+		// Desplazamiento horizontal
+		
+		int distanciaX = Math.abs(x - xObj);
+		for (int iX = 0; iX < distanciaX; iX++) {
+			if (xObj > x) { // Si xObj es mayor al punto x de origen, los pasos serán hacia la derecha, de lo contrario serán hacia la izquierda
+				System.out.println("DERECHA");
+			} else {
+				System.out.println("IZQUIERDA");
+			}
+		}
+				
+		
 		
 	}
 
@@ -76,10 +109,27 @@ public class Estrategias {
 	 * @param yEnem: la posicion en Y del enemigo
 	 */
 	public void alejarseDe(int x, int y, int xEnem, int yEnem) {
+		// Alejamiento vertical
+	
+		int distanciaY = Math.abs(y - yEnem);
+		for (int iY = 0; iY < distanciaY; iY++) {
+			if (yEnem > y) {
+				System.out.println("ABAJO");
+			} else {
+				System.out.println("ARRIBA");
+			}
+		}
 		
+		// Alejamiento horizontal
+		
+		int distanciaX = Math.abs(x - xEnem);
+		for (int iX = 0; iX < distanciaX; iX++) {
+			if (xEnem > x) {
+				System.out.println("IZQUIERDA");
+			} else {
+				System.out.println("DERECHA");
+			}
+		}
 	}
 
-
-
 }
-
