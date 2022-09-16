@@ -14,7 +14,7 @@ public class Estrategia2 {
 	
 
 	public int frutaMasCercana(int x, int y, int x1, int y1, int x2, int y2) {
-		return ((Math.abs(x - x1) + Math.abs(y - y1) ) <= (Math.abs(x - x2) + Math.abs(y - y2))) ?  1 : 2;
+		return ((Math.abs(x - x1) + Math.abs(y - y1) ) <= (Math.abs(x - x2) + Math.abs(y - y2))) ?  1 : 2; // Como no aclara el caso en el que sean iguales, se le da prioridad a la primera fruta.
 	}
 	/**
 	 * Saca por pantalla las instrucciones necesarias para llegar desde
